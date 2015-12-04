@@ -74,9 +74,10 @@ for ( n in c('ProbeName', 'SampleName' )){
 melted[,n] <- factor(melted[,n], levels=unique(melted[,n]))
 }
 
-
 colrs <- rainbow( length(unique(melted$ColorGroup)) )
 melted$colrss <- colrs[as.numeric(melted$ColorGroup)]
+
+## define Expression colors
 ss <-melted[which(melted$ProbeName==melted$ProbeName[1]),]
 brks= c( -20.1, quantile(melted$Expression[which(melted$Expression != -20)],seq(0,1,by=0.1)) )
 brks[length(brks)] = brks[length(brks)] + 0.1
